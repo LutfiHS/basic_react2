@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Form-wrapper {
+  width: 100%;
+  height: auto;
+  gap: 19.7px;
+}
+
+.form-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 404px;
+  height: auto;
+  position: relative;
+  gap: 24.7px;
+}
+
+/* input */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 404px;
+  height: auto;
+  position: relative;
+  gap: 24.7px;
+}
+
+.input-container .title-form {
+  font: 400 30px "Poppins", sans-serif;
+  font-weight: 48px;
+  align-self: flex-start;
+  margin-bottom: 32.49px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  width: 404px;
+}
+
+.input-field label {
+  font: 500 14px "Poppins", sans-serif;
+}
+
+.input-field input {
+  font: 500 12px "Poppins", sans-serif;
+  padding: 8.5px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  width: 404px;
+  height: 32px;
+}
+
+/* agreement */
+.check-agreement {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 404px;
+  height: auto;
+  gap: 8.5px;
+}
+
+.check-agreement label {
+  font: 500 9px "Poppins", sans-serif;
+  align-content: center;
+  font-weight: medium;
+}
+
+.check-agreement span {
+  font: 500 9px "Poppins", sans-serif;
+  align-content: center;
+  text-decoration: underline;
+}
+
+/* button */
+.form-container button {
+  width: 404px;
+  height: 35.02px;
+  background: #3a5b22;
+  border-radius: 15px;
+  border: none;
+  font: 500 14px "Poppins", sans-serif;
+  color: #ffffff;
+
+  font: 500 13px "Poppins", sans-serif;
+  font-weight: bold;
+  margin-bottom: 32.49px;
+  cursor: pointer;
+}
+
+.line-image {
+  height: 15.32px;
+  pad: 0;
+  margin: 0;
+  margin-bottom: 42px;
+}
+
+.optional-container {
+  pad: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 404px;
+  height: auto;
+}
+
+.optional-container a {
+  font: 500 12px "Poppins", sans-serif;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8.5px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 4px 10px;
+  width: 190px;
+  height: 32px;
+}
+
+.have-account {
+  font: 500 14px "Poppins", sans-serif;
+}
+
+.have-account a {
+  color: #0f3dde;
+}
