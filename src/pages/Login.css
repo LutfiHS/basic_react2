@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  width: 100%;
+  height: auto;
+}
+
+.login-container {
+  margin: 0 auto;
+  width: 80vw;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.plan-image {
+  width: 781.5px;
+  height: 100vh;
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+}
