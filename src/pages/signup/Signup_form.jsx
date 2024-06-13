@@ -5,14 +5,18 @@ import iconApple from "../../assets/icon-apple.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 function Forms() {
+  const [Name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(null);
-  const [errorLogin, setErrorLogin] = useState(null);
+  const [errorRegister, setErrorRegister] = useState(null);
+  const [idUser, setIduser] = useState(null);
+  const [successRegister, setSuccessRegister] = useState(null);
   const navigate = useNavigate();
 
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
   const handleChangeUsername = (event) => {
     setUserName(event.target.value);
   };
@@ -22,13 +26,10 @@ function Forms() {
 
   const handleSubmit = async () => {
     const payload = {
+      name: Name,
       username: userName,
       password: password,
-      // buat inputan untuk name, dan roleid dibuat statis
-      // "name": "l",
-      // "username": "lhs1",
-      // "password": "test123",
-      // "roleId": 1
+      roleId: 1,
     };
 
     try {
@@ -36,59 +37,70 @@ function Forms() {
         "https://api.mudoapi.tech/register",
         payload
       );
-      const token = res.data.data.token;
-      setToken(token);
-      localStorage.setItem("access_token", token);
-      localStorage.setItem("access_token", token);
-      setErrorLogin(null);
+      console.log(res);
+      setErrorRegister(null);
+      setIduser(res.data.data.id);
+      setSuccessRegister(res.data.message);
 
-      setTimeout(() => {
+      setInterval(() => {
         navigate("/login");
-      }, 1000);
+      }, 2000);
     } catch (error) {
-      setErrorLogin(error.response.data.message);
-      setToken(null);
+      console.log(error);
+      setErrorRegister(error.response.data.message);
+      setIduser(null);
+      setSuccessRegister(null);
     }
   };
 
-  const handlebtnvisible = () => {
+  const handlevisible = () => {
     if (!userName.length || !password.length) {
       return true;
     }
     return false;
   };
 
-  const handleCheck = () => {
-    if (errorLogin) {
-      return <p>{errorLogin}</p>;
-    } else if (token) {
-      return <p>{"register success"}</p>;
+  const handleRegister = () => {
+    if (errorRegister) {
+      return <p>{errorRegister}</p>;
+    } else if (idUser) {
+      return <p>{successRegister}</p>;
     }
-
     return null;
   };
-
-  console.log(userName, password);
 
   return (
     <div className="Form-wrapper">
       <div className="form-container">
         <div className="input-container">
           <h1 className="title-form">Get Started Now</h1>
-          {handleCheck()}
+          {handleRegister()}
+
           <div className="input-field">
             <label htmlFor="name">Name</label>
             <input
-              onChange={handleChangeUsername}
+              onChange={handleName}
               type="text"
               id="name"
               placeholder="Enter your name"
             />
           </div>
+
+          <div className="input-field">
+            <label htmlFor="username">username</label>
+            <input
+              onChange={handleChangeUsername}
+              type="text"
+              id="username"
+              placeholder="Enter your name"
+            />
+          </div>
+
           <div className="input-field">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" placeholder="Enter your email" />
           </div>
+
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <input
@@ -108,7 +120,7 @@ function Forms() {
             </span>
           </label>
         </div>
-        <button disabled={handlebtnvisible()} onClick={handleSubmit}>
+        <button disabled={handlevisible()} onClick={handleSubmit}>
           Signup
         </button>
         <img className="line-image" src={line} alt="" />
