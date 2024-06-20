@@ -1,17 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import { RouterProvider, useRoutes } from "react-router-dom";
+import { routeList } from "./routes/routeList";
 
 function App() {
+  // let element = useRoutes(routeList);
+  // return element;
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={routeList} fallbackElement={<p>loading...</p>} />
   );
 }
 

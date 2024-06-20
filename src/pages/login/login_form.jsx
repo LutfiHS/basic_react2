@@ -59,7 +59,7 @@ function Forms() {
     return null;
   };
 
-  console.log(userName, password);
+  // console.log(userName, password);
 
   return (
     <div className="Form-wrapper">
